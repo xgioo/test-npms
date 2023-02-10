@@ -1,0 +1,11 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"后端启动\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
