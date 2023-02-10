@@ -1,0 +1,6 @@
+封装公共方法
+
+db.js
+    mysql.createConnection
+    function sqlFn(){}
+    module.exports = sqlFn;
