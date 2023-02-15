@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="wrap1">
+      <div class="content">
+        <div class="t">1</div>
+        <div class="t">2</div>
+        <div class="t">3</div>
+        <div class="t">4</div>
+        <div class="t">5</div>
+        <div class="t">6</div>
+        <div class="t">7</div>
+        <div class="t">8</div>
+        <div class="t">9</div>
+        <div class="t">10</div>
+      </div>
+      <div class="side">
+        <div class="about">介绍</div>
+        <div class="sticky">sticky</div>
+      </div>
+    </div>
+  </body>
+  <style>
+    .wrap1 {
+      display: flex;
+      width: 800px;
+      margin: 0 auto;
+      /* 文字 */
+      color: white;
+      font-size: 60px;
+      font-weight: 900;
+    }
+    .content {
+      background-color: antiquewhite;
+      width: 700px;
+    }
+    .t {
+      height: 300px;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+    }
+    /* .t:nth-child(2n) {
+      background: #000;
+    } */
+    .t:nth-child(2n) {
+      background: red;
+    }
+    .side {
+      background-color: aqua;
+      flex: 1;
+    }
+    .about {
+      height: 300px;
+      background-color: yellow;
+    }
+    .sticky {
+      height: 300px;
+      background-color: green;
+      position: sticky;
+      top: 100px;
+    }
+  </style>
+</html>
