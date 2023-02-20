@@ -5,34 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div class="wrap1">
-      <div class="content">
-        <div class="t">1</div>
-        <div class="t">2</div>
-        <div class="t">3</div>
-        <div class="t">4</div>
-        <div class="t">5</div>
-        <div class="t">6</div>
-        <div class="t">7</div>
-        <div class="t">8</div>
-        <div class="t">9</div>
-        <div class="t">10</div>
+    <div class="big-wrapper">
+      <div class="wrap1">
+        <div class="side">
+          <div class="sticky1">sticky-0</div>
+        </div>
+        <div class="content">
+          <div class="t">1</div>
+          <div class="t">2</div>
+          <div class="t">3</div>
+          <div class="t">4</div>
+          <div class="t">5</div>
+          <div class="t">6</div>
+          <div class="t">7</div>
+          <div class="t">8</div>
+          <div class="t">9</div>
+          <div class="t">10</div>
+        </div>
+        <div class="side">
+          <div class="about">介绍</div>
+          <div class="sticky2">sticky-50</div>
+        </div>
       </div>
-      <div class="side">
-        <div class="about">介绍</div>
-        <div class="sticky">sticky</div>
-      </div>
+      <div class="wrap2">wrap2</div>
     </div>
   </body>
   <style>
-    .wrap1 {
-      display: flex;
-      width: 800px;
-      margin: 0 auto;
+    body {
+      background-color: #000;
+    }
+    .big-wrapper {
       /* 文字 */
       color: white;
       font-size: 60px;
       font-weight: 900;
+    }
+    .wrap1 {
+      display: flex;
+      width: 800px;
+      margin: 0 auto;
+    }
+    .wrap2 {
+      width: 800px;
+      margin: 0 auto;
+      background-color: cornflowerblue;
+      height: 1000px;
     }
     .content {
       background-color: antiquewhite;
@@ -60,11 +77,17 @@
       height: 300px;
       background-color: yellow;
     }
-    .sticky {
+    .sticky1 {
       height: 300px;
       background-color: green;
       position: sticky;
-      top: 100px;
+      top: 0;
+    }
+    .sticky2 {
+      height: 200px;
+      background-color: darkorange;
+      position: sticky;
+      top: 50px;
     }
   </style>
 </html>
