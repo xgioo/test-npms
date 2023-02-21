@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        font-size: 30px;
+        text-align: center;
+      }
+      .header {
+        height: 60px;
+        background-color: transparent;
+        position: sticky;
+        top: 0;
+        z-index: 9;
+        background-color: red;
+      }
+      .step {
+        background: yellow;
+        height: 300px;
+      }
+
+      .step:nth-child(2n) {
+        background-color: #fff;
+      }
+      .main {
+        background-color: #ddd;
+      }
+      .nav {
+        font-size: 14px;
+        position: fixed;
+        right: 30px;
+        top: 30px;
+        background-color: green;
+        padding: 20px;
+        z-index: 10;
+      }
+      .nav a {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">header</div>
+    <div class="main">
+      <div class="step" id="step1">step1</div>
+      <div class="step" id="step2">step2</div>
+      <div class="step" id="step3">step3</div>
+      <div class="step" id="step4">step4</div>
+      <div class="step" id="step5">step5</div>
+      <div class="step" id="step6">step6</div>
+      <div class="step" id="step7">step7</div>
+      <div class="step" id="step8">step8</div>
+    </div>
+    <div class="nav">
+      <a href="#step1">step1</a>
+      <a href="#step2">step2</a>
+      <a href="#step3">step3</a>
+      <a href="#step4">step4</a>
+      <a href="#step5">step5</a>
+      <a href="#step6">step6</a>
+      <a href="#step7">step7</a>
+      <a href="#step8">step8</a>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $(".nav")
+          .find("a")
+          .on("click", function () {
+            var id = $(this).attr("href");
+            var $id = $(id);
+            document.documentElement.scrollTop = $id.offset().top - 60;
+            return false;
+          });
+      });
+    </script>
+  </body>
+</html>
