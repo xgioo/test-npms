@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document(待)</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+      }
+      .content {
+      }
+      .box {
+        height: 200px;
+      }
+      .box:nth-child(2n-1) {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="content">
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+    <script>
+      window.onload = function () {
+        document.addEventListener("scroll", function (e) {
+          const { clientHeight, scrollHeight, scrollTop, offsetHeight } =
+            document.documentElement;
+          var obj = { clientHeight, scrollHeight, scrollTop, offsetHeight };
+          console.log(obj);
+        });
+        // a.addEventListener("click", function () {});
+      };
+    </script>
+  </body>
+</html>
