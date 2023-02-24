@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        padding: 8px;
+      }
+      hr {
+        margin: 20px 0;
+      }
+      .wrap {
+        display: flex;
+      }
+
+      .box1 {
+        border: 5px solid black;
+        height: 100px;
+        width: 100px;
+        margin: 20px;
+        padding: 10px;
+        flex-shrink: 0;
+        overflow: auto;
+        /* overflow: visible; */
+      }
+      .box1 .content {
+        height: 200px;
+        background-color: antiquewhite;
+        position: relative;
+        z-index: 9;
+      }
+      .box2 {
+        border: 5px solid blue;
+        height: 100px;
+        width: 100px;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="box1" id="box1">
+        <div class="content"></div>
+      </div>
+      <div class="box2"></div>
+    </div>
+
+    <p>滚动一下获取scrollTop：<button id="button">获取</button></p>
+    <p>最大滚动距离：scroll-client</p>
+    <hr />
+
+    <div class="tip">
+      <img
+        src="https://image-1256722034.cos.ap-guangzhou.myqcloud.com/ipic/2023-02-24-055122.png"
+        alt=""
+        height="315px"
+      />
+      <img
+        src="https://image-1256722034.cos.ap-guangzhou.myqcloud.com/ipic/2023-02-24-055656.png"
+        alt=""
+        height="300px"
+      />
+    </div>
+    <script>
+      window.onload = function () {
+        // console.dir(box1);
+
+        const {
+          offsetHeight,
+          offsetWidth,
+          offsetLeft,
+          offsetTop,
+          offsetParent,
+        } = box1;
+        const { scrollHeight, scrollWidth, scrollLeft, scrollTop } = box1;
+        const { clientHeight, clientWidth, clientLeft, clientTop } = box1;
+        var obj = {
+          offset: {
+            offsetHeight,
+            offsetWidth,
+            offsetLeft,
+            offsetTop,
+            offsetParent,
+          },
+          scroll: {
+            scrollHeight,
+            scrollWidth,
+            scrollLeft,
+            scrollTop,
+          },
+          client: {
+            clientHeight,
+            clientWidth,
+            clientLeft,
+            clientTop,
+          },
+        };
+
+        button.addEventListener("click", function () {
+          const { scrollTop } = box1;
+          console.log("scrollTop:", scrollTop);
+        });
+        console.log(obj);
+      };
+    </script>
+  </body>
+</html>

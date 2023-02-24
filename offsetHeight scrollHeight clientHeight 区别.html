@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>offsetHeight scrollHeight clientHeight 区别</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        background-color: #f1f1f1;
+      }
+
+      #container {
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        margin: 30px 400px;
+        border: 5px solid red;
+        box-sizing: border-box;
+        overflow: auto;
+        background-color: yellow;
+      }
+      #content {
+        width: 600px;
+        height: 500px;
+        background-color: blue;
+        display: inline-block;
+        color: #fff;
+        padding: 10px;
+        border: 5px solid black;
+        margin:5px;
+
+      }
+
+      /* 描述信息 */
+      .mark {
+        position: absolute;
+        left: 771px;
+        top: 20px;
+        border: 1px solid #ddd;
+        width: 400px;
+        padding: 10px;
+      }
+      .mark .pointer-line {
+        position: absolute;
+        width: 1px;
+        height: 100px;
+        background-color: black;
+        transform: rotate(60deg);
+        left: -31px;
+        top: -4px;
+      }
+      .mark .red {
+        display: inline-block;
+        width: 40px;
+        height: 10px;
+        background-color: red;
+      }
+      .mark .blue {
+        display: inline-block;
+        width: 40px;
+        height: 10px;
+        background-color: blue;
+      }
+      .mark .yellow {
+        display: inline-block;
+        width: 40px;
+        height: 10px;
+        background-color: yellow;
+      }
+      /* 盒子模型图片 */
+      .img{
+
+        margin-left: 80px;
+        position: absolute;
+        top: 30px;
+
+      }
+      img{
+        display: block;
+        width: 300px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>offsetHeight scrollHeight clientHeight 区别,看 console.log</h4>
+
+    <div id="container">
+      <div id="content">#content</div>
+    </div>
+
+    
+
+    <div class="mark">
+      <div class="pointer-line"></div>
+      <p>div#container 盒子信息</p>
+      <p><span class="red"></span>: border</p>
+      <p><span class="yellow"></span>: padding</p>
+      <p><span class="blue"></span>: 实际内容宽高 div#content</p>
+      <p>
+        <button id="btn">更新scrollTop scrollLeft</button>
+        <p id="scrollTop—scrollLeft">
+          scrollTop:0, scrollLeft:0
+        </p>
+      </p>
+
+
+ 
+
+      <hr style="margin: 10px;" />
+
+      <h3>答案：</h3>
+      <p>
+        <p>offsetHeight = border + padding + content 200</p>
+        <p>clientHeight = padding + content  190</p>
+        <p>scrollHeight = padding + 实际内容的高度(<span style="color:red">包括maring</span>) 580</p>
+        <hr style="margin: 10px;" />
+        <p style="font-weight: bold;">scrollTop scrollLeft 需滚动之后获取</p>
+        <br>
+        <p> scrollLeft：0 ～ 子元素盒子模型宽度（<span style="color:red">margin</span>+border+padding+content.width） - 父content.width</p>
+        <p> scrollTop：0 ～ 子元素盒子模型高度（<span style="color:red">margin</span>+border+padding+content.height) - 父content.height</p>
+      </p>
+
+
+
+      
+    </div>
+
+    <div class="img">
+      <img src="https://image-1256722034.cos.ap-guangzhou.myqcloud.com/ipic/2023-01-11-030807.png" alt="">
+      <img src="https://image-1256722034.cos.ap-guangzhou.myqcloud.com/ipic/2023-01-11-031634.png" alt="">
+      <img src="https://image-1256722034.cos.ap-guangzhou.myqcloud.com/ipic/2023-01-11-023013.jpg" alt="">
+    </div>
+
+    <script>
+      const container = document.getElementById("container");
+      console.log("offsetHeight", container.offsetHeight);
+      console.log("offsetWidth", container.offsetWidth);
+      console.log("clientWidth", container.clientWidth);
+      console.log("clientHeight", container.clientHeight);
+      console.log("scrollWidth", container.scrollWidth);
+      console.log("scrollHeight", container.scrollHeight);
+
+    
+
+      document.getElementById("btn").addEventListener('click',function(){
+        document.getElementById("scrollTop—scrollLeft").innerHTML = `scrollTop:${container.scrollTop}, scrollLeft:${container.scrollLeft}`
+      })
+    </script>
+  </body>
+</html>
